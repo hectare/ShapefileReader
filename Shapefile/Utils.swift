@@ -1,6 +1,6 @@
 //
-//  BinUtils.swift
-//  BinUtils
+//  Utils.swift
+//  Utils
 //
 //  Created by Nicolas Seriot on 12/03/16.
 //  Copyright © 2016 Nicolas Seriot. All rights reserved.
