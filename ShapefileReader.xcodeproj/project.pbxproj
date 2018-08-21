@@ -145,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 035D0FE91C9E1EA200BC89C8 /* Build configuration list for PBXProject "Shapefile" */;
+			buildConfigurationList = 035D0FE91C9E1EA200BC89C8 /* Build configuration list for PBXProject "ShapefileReader" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -364,7 +364,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		035D0FE91C9E1EA200BC89C8 /* Build configuration list for PBXProject "Shapefile" */ = {
+		035D0FE91C9E1EA200BC89C8 /* Build configuration list for PBXProject "ShapefileReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				035D0FF31C9E1EA200BC89C8 /* Debug */,

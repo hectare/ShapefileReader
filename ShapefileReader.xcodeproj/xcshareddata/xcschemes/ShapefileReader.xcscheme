@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4C03FE3F212BD740009BD6ED"
                BuildableName = "ShapefileReader.framework"
                BlueprintName = "ShapefileReader"
-               ReferencedContainer = "container:Shapefile.xcodeproj">
+               ReferencedContainer = "container:ShapefileReader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,7 +48,7 @@
             BlueprintIdentifier = "4C03FE3F212BD740009BD6ED"
             BuildableName = "ShapefileReader.framework"
             BlueprintName = "ShapefileReader"
-            ReferencedContainer = "container:Shapefile.xcodeproj">
+            ReferencedContainer = "container:ShapefileReader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,7 +66,7 @@
             BlueprintIdentifier = "4C03FE3F212BD740009BD6ED"
             BuildableName = "ShapefileReader.framework"
             BlueprintName = "ShapefileReader"
-            ReferencedContainer = "container:Shapefile.xcodeproj">
+            ReferencedContainer = "container:ShapefileReader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

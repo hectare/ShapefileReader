@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Shapefile.xcodeproj">
+      location = "self:ShapefileReader.xcodeproj">
    </FileRef>
 </Workspace>
