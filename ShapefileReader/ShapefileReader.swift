@@ -159,10 +159,18 @@ public class DBFReader {
         
         let numFields = (headerLength - 33) / 32
         
+        self.fieldNames = []
         self.fields = []
         for _ in 0..<numFields {
             let fieldDesc = try unpack("<11sc4xBB14x", f.readData(ofLength: 32)) // [name, type CDFLMN, length, count]
             self.fields.append(fieldDesc as [AnyObject])
+            
+            // Building a new object for the fieldNames here, because self.fields doesn't
+            // always seem to produce correct results. Needs further investigation.
+            let fieldName = fieldDesc[0] as! String
+            let cSet = CharacterSet(charactersIn: "\0")
+            let stripped = fieldName.trimmingCharacters(in: cSet)
+            fieldNames.append(stripped)
         }
         
         let terminator = try unpack("<s", f.readData(ofLength: 1))[0] as! String
