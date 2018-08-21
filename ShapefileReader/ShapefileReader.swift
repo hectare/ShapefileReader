@@ -128,13 +128,13 @@ public class DBFReader {
     var recordLengthFromHeader : Int!
     var recordFormat : String!
     
-    init(path:String) throws {
-        self.fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: path))
+    init(path: URL) throws {
+        self.fileHandle = try FileHandle(forReadingFrom: path)
         try self.readHeader()
     }
     
     deinit {
-        self.fileHandle.closeFile()
+        self.fileHandle?.closeFile()
     }
     
     func readHeader() throws {
@@ -319,13 +319,13 @@ public class SHPReader {
     var measure : (m_min:Double, m_max:Double) = (0.0, 0.0)
     var shpLength : UInt64 = 0
     
-    init(path:String) throws {
-        self.fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: path))
+    init(path: URL) throws {
+        self.fileHandle = try FileHandle(forReadingFrom: path)
         try self.readHeader()
     }
     
     deinit {
-        self.fileHandle.closeFile()
+        self.fileHandle?.closeFile()
     }
     
     fileprivate func readHeader() throws {
@@ -502,8 +502,8 @@ public class SHXReader {
         return shapeOffsets.count
     }
     
-    init(path:String) throws {
-        self.fileHandle = try FileHandle(forReadingFrom: URL(fileURLWithPath: path))
+    init(path: URL) throws {
+        self.fileHandle = try FileHandle(forReadingFrom: path)
         self.shapeOffsets = try self.readOffsets()
     }
     
@@ -564,13 +564,13 @@ public class ShapefileReader {
     
     public var shapeName : String
     
-    public init(path:String) throws {
+    public init(path: URL) throws {
         
-        self.shapeName = (path as NSString).deletingPathExtension
+        self.shapeName = path.deletingPathExtension().absoluteString
 
-        self.shp = try SHPReader(path: "\(shapeName).shp")
-        self.dbf = try DBFReader(path: "\(shapeName).dbf")
-        self.shx = try SHXReader(path: "\(shapeName).shx")
+        self.shp = try SHPReader(path: path)
+        self.dbf = try DBFReader(path: path.deletingPathExtension().appendingPathExtension("dbf"))
+        self.shx = try SHXReader(path: path.deletingPathExtension().appendingPathExtension("shx"))
     }
     
     subscript(i:Int) -> Shape? {
