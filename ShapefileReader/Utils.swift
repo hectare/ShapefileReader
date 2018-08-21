@@ -115,7 +115,7 @@ func numberOfBytesInFormat(_ format:String) -> Int {
     
     var mutableFormat = format
     
-    while mutableFormat.count > 0 {
+    while !mutableFormat.isEmpty {
         
         let c = mutableFormat.remove(at: mutableFormat.startIndex)
         
@@ -131,25 +131,24 @@ func numberOfBytesInFormat(_ format:String) -> Int {
             continue
         }
         
-        for _ in 0..<max(n,1) {
+        let repeatCount = max(n,1)
+        
+        switch(c) {
             
-            switch(c) {
-                
-            case "@", "<", "=", ">", "!", " ":
-                ()
-            case "c", "b", "B", "x", "?":
-                numberOfBytes += 1
-            case "h", "H":
-                numberOfBytes += 2
-            case "i", "l", "I", "L", "f":
-                numberOfBytes += 4
-            case "q", "Q", "d":
-                numberOfBytes += 8
-            case "P":
-                numberOfBytes += MemoryLayout<Int>.size
-            default:
-                assertionFailure("-- unsupported format \(c)")
-            }
+        case "@", "<", "=", ">", "!", " ":
+            ()
+        case "c", "b", "B", "x", "?":
+            numberOfBytes += 1 * repeatCount
+        case "h", "H":
+            numberOfBytes += 2 * repeatCount
+        case "i", "l", "I", "L", "f":
+            numberOfBytes += 4 * repeatCount
+        case "q", "Q", "d":
+            numberOfBytes += 8 * repeatCount
+        case "P":
+            numberOfBytes += MemoryLayout<Int>.size * repeatCount
+        default:
+            assertionFailure("-- unsupported format \(c)")
         }
         
         n = 0
@@ -207,7 +206,7 @@ func pack(_ format:String, _ objects:[Any], _ stringEncoding:String.Encoding=Str
     
     var n = 0 // repeat counter
     
-    while mutableFormat.count > 0 {
+    while !mutableFormat.isEmpty {
         
         let c = mutableFormat.remove(at: mutableFormat.startIndex)
         
@@ -318,7 +317,7 @@ func unpack(_ format:String, _ data:Data, _ stringEncoding:String.Encoding=Strin
     
     mutableFormat.remove(at: mutableFormat.startIndex) // consume byte-order specifier
     
-    while mutableFormat.count > 0 {
+    while !mutableFormat.isEmpty {
         
         let c = mutableFormat.remove(at: mutableFormat.startIndex)
         
