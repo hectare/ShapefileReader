@@ -1,6 +1,5 @@
 //
-//  Shapefile.swift
-//  Unpack
+//  ShapefileReader.swift
 //
 //  Created by nst on 12/03/16.
 //  Copyright © 2016 Nicolas Seriot. All rights reserved.
@@ -23,10 +22,10 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
+// TODO: Replace this with usage of CLLocationCoordinate?
+public typealias MapPoint = CGPoint
 
-typealias MapPoint = CGPoint
-
-enum ShapeType : Int {
+public enum ShapeType : Int {
     case nullShape = 0
     case point = 1
     case polyLine = 3
@@ -75,14 +74,14 @@ enum ShapeType : Int {
     }
 }
 
-class Shape {
-    init(type:ShapeType = .nullShape) {
+public class Shape {
+    public init(type:ShapeType = .nullShape) {
         self.shapeType = type
     }
     
     var shapeType : ShapeType
-    var points : [MapPoint] = []
-    var bbox : (x_min:Double, y_min:Double, x_max:Double, y_max:Double) = (0.0,0.0,0.0,0.0)
+    public var points : [MapPoint] = []
+    public var bbox : (x_min:Double, y_min:Double, x_max:Double, y_max:Double) = (0.0,0.0,0.0,0.0)
     var parts : [Int] = []
     var partTypes : [Int] = []
     var z : Double = 0.0
@@ -109,7 +108,7 @@ class Shape {
     }
 }
 
-class DBFReader {
+public class DBFReader {
     // dBase III+ specs http://www.oocities.org/geoff_wass/dBASE/GaryWhite/dBASE/FAQ/qformt.htm#A
     // extended with dBase IV 2.0 'F' type
 
@@ -117,12 +116,13 @@ class DBFReader {
         case cannotReadFile(path:String)
     }
     
-    typealias DBFRecord = [Any]
+    public typealias DBFRecord = [Any]
     
     var fileHandle : FileHandle!
     var numberOfRecords : Int!
     var fileType : Int!
     var lastUpdate : String! // YYYY-MM-DD
+    public var fieldNames : [String]!
     var fields : [[AnyObject]]!
     var headerLength : Int!
     var recordLengthFromHeader : Int!
@@ -310,7 +310,7 @@ class DBFReader {
     }
 }
 
-class SHPReader {
+public class SHPReader {
     
     var fileHandle : FileHandle!
     var shapeType : ShapeType = .nullShape
@@ -485,9 +485,10 @@ class SHPReader {
     }
 }
 
-class SHXReader {
+public class SHXReader {
     /*
-    The shapefile index contains the same 100-byte header as the .shp file, followed by any number of 8-byte fixed-length records which consist of the following two fields:
+    The shapefile index contains the same 100-byte header as the .shp file,
+    followed by any number of 8-byte fixed-length records which consist of the following two fields:
     Bytes   Type    Endianness  Usage
     0–3     int32   big     Record offset (in 16-bit words)
     4–7     int32   big     Record length (in 16-bit words)
@@ -555,15 +556,15 @@ class SHXReader {
     }
 }
 
-class ShapefileReader {
+public class ShapefileReader {
     
-    var shp : SHPReader!
-    var dbf : DBFReader? = nil
-    var shx : SHXReader? = nil
+    public var shp : SHPReader!
+    public var dbf : DBFReader? = nil
+    public var shx : SHXReader? = nil
     
-    var shapeName : String
+    public var shapeName : String
     
-    init(path:String) throws {
+    public init(path:String) throws {
         
         self.shapeName = (path as NSString).deletingPathExtension
 
@@ -587,9 +588,9 @@ class ShapefileReader {
         }
 
         return nil
-}
+    }
     
-    func shapeAndRecordGenerator() -> AnyIterator<(Shape, DBFReader.DBFRecord)> {
+    public func shapeAndRecordGenerator() -> AnyIterator<(Shape, DBFReader.DBFRecord)> {
         
         var i = 0
         
