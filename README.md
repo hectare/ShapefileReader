@@ -24,7 +24,7 @@ for (shape, record) in sr.shapeAndRecordGenerator() {
     // record is [AnyObject]
 
     for points in shape.partPointsGenerator() {
-        // draw polygon with [CGPoint]
+        // draw polygon with [CLLocationCoordinate2D]
     }
 }
 ```
@@ -75,7 +75,7 @@ let shape = sr[2]
 
 __Implementation Details__
 
-- shape points are CGPoint arrays
+- shape points are CLLocationCoordinate2D arrays
 - record are arrays of Int, Double, Bool or String (no NSDate, no optionals)
 - random access in files and enumerators are used each time it is possible
 - most of time, code will crash when files do not match the specs, feel free to open an issue an join the offending files

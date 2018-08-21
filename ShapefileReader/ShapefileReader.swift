@@ -9,8 +9,8 @@
 // https://www.esri.com/library/whitepapers/pdfs/shapefile.pdf
 // https://raw.githubusercontent.com/GeospatialPython/pyshp/master/shapefile.py
 
+import CoreLocation
 import Foundation
-import CoreGraphics
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -22,8 +22,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-// TODO: Replace this with usage of CLLocationCoordinate?
-public typealias MapPoint = CGPoint
 
 public enum ShapeType : Int {
     case nullShape = 0
@@ -80,14 +78,14 @@ public class Shape {
     }
     
     var shapeType : ShapeType
-    public var points : [MapPoint] = []
+    public var points : [CLLocationCoordinate2D] = []
     public var bbox : (x_min:Double, y_min:Double, x_max:Double, y_max:Double) = (0.0,0.0,0.0,0.0)
     var parts : [Int] = []
     var partTypes : [Int] = []
     var z : Double = 0.0
     var m : [Double?] = []
     
-    func partPointsGenerator() -> AnyIterator<[MapPoint]> {
+    func partPointsGenerator() -> AnyIterator<[CLLocationCoordinate2D]> {
         
         var indices = Array(self.parts)
         indices.append(self.points.count-1)
@@ -411,10 +409,10 @@ public class SHPReader {
             record.partTypes = try unpack("<\(nParts)i", f.readData(ofLength: nParts * 4)).map({ $0 as! Int })
         }
         
-        var recPoints : [MapPoint] = []
+        var recPoints : [CLLocationCoordinate2D] = []
         for _ in 0..<nPoints {
             let points = try unpack("<2d", f.readData(ofLength: 16)).map({ $0 as! Double })
-            recPoints.append(CGPoint(x: CGFloat(points[0]),y: CGFloat(points[1])))
+            recPoints.append(CLLocationCoordinate2D(latitude: points[1], longitude: points[0]))
         }
         record.points = recPoints
         
@@ -446,7 +444,7 @@ public class SHPReader {
         
         if shapeType.hasSinglePoint {
             let point = try unpack("<2d", f.readData(ofLength: 16)).map({ $0 as! Double })
-            record.points = [CGPoint(x: CGFloat(point[0]),y: CGFloat(point[1]))]
+            record.points = [CLLocationCoordinate2D(latitude: point[1], longitude: point[0])]
         }
         
         if shapeType.hasSingleZ {
