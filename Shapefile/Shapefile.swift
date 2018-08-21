@@ -209,7 +209,7 @@ class DBFReader {
             
             let trimmedValue = value.trimmingCharacters(in: CharacterSet.whitespaces)
             
-            if trimmedValue.characters.count == 0 {
+            if trimmedValue.count == 0 {
                 record.append("")
                 continue
             }

@@ -194,7 +194,7 @@ func drawZipLabel(_ b:BitmapCanvas, _ zip:Int, _ p:CGPoint, _ name:String?=nil) 
 func printZipDistribution(_ zipForTownCode:[Int:(Int,String)]) {
     var d : [Int:Int] = [:]
     
-    print("--", zipForTownCode[4284])
+    //print("--", zipForTownCode[4284])
     
     for i in 1...9 {
         for j in 0...9 {
@@ -314,7 +314,7 @@ func drawZIPCodesPDF() throws {
     let path = "/tmp/switzerland_zip.pdf"
     let success = (try? pdfData.write(to: URL(fileURLWithPath: path), options: [.atomic])) != nil
     if success {
-        NSWorkspace.shared().openFile(path)
+        NSWorkspace.shared.openFile(path)
     }
 }
 
