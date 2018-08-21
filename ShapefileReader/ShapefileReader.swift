@@ -11,17 +11,6 @@
 
 import CoreLocation
 import Foundation
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
 
 public enum ShapeType : Int {
     case nullShape = 0
@@ -431,7 +420,8 @@ public class SHPReader {
             let mmax = a[1]
             print("mmin: \(mmin), mmax: \(mmax)")
             
-            // Spec: Any floating point number smaller than –10e38 is considered by a shapefile reader to represent a "no data" value.
+            // Spec: Any floating point number smaller than –10e38
+            // is considered by a shapefile reader to represent a "no data" value.
             record.m = []
             for m in try unpack("<\(nPoints)d", f.readData(ofLength: nPoints * 8)).map({ $0 as! Double }) {
                 if m < -10e38 {
@@ -453,8 +443,15 @@ public class SHPReader {
         
         if shapeType.hasSingleM {
             let a = try unpack("<d", f.readData(ofLength: 8)).map({ $0 as? Double })
-            let m = a[0] < -10e38 ? nil : a[0]
-            record.m = [m]
+            
+            if let temp = a[0] {
+                // Spec: Any floating point number smaller than –10e38
+                // is considered by a shapefile reader to represent a "no data" value.
+                let value = temp < -10e38 ? nil : a[0]
+                record.m = [value]
+            } else {
+                record.m = [nil]
+            }
         }
         
         return (next, record)
