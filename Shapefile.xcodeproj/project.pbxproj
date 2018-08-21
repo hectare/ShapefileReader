@@ -28,6 +28,8 @@
 		4C03FE40212BD740009BD6ED /* ShapefileReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShapefileReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C03FE42212BD740009BD6ED /* ShapefileReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapefileReader.h; sourceTree = "<group>"; };
 		4C03FE43212BD740009BD6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C03FE4A212BDC1E009BD6ED /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4C03FE4C212BDCAC009BD6ED /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,8 @@
 		035D0FE51C9E1EA200BC89C8 = {
 			isa = PBXGroup;
 			children = (
+				4C03FE4C212BDCAC009BD6ED /* .gitignore */,
+				4C03FE4A212BDC1E009BD6ED /* LICENSE */,
 				0344B4DD1C9EEAFF001DCDAB /* README.md */,
 				035D10051C9E1FB200BC89C8 /* ShapefileTests */,
 				4C03FE41212BD740009BD6ED /* ShapefileReader */,
