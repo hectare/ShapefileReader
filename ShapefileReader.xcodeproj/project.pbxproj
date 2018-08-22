@@ -10,26 +10,32 @@
 		4C03FE44212BD740009BD6ED /* ShapefileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C03FE42212BD740009BD6ED /* ShapefileReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C03FE48212BD8E4009BD6ED /* ShapefileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D0FFE1C9E1EB200BC89C8 /* ShapefileReader.swift */; };
 		4C03FE49212BD8EE009BD6ED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344B4DF1C9EFB02001DCDAB /* Utils.swift */; };
+		4CC1B2F5212D3710000A8C80 /* ShapefileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1B2F4212D370F000A8C80 /* ShapefileReaderTests.swift */; };
+		4CC1B2F7212D3710000A8C80 /* ShapefileReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C03FE40212BD740009BD6ED /* ShapefileReader.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4CC1B2F8212D3710000A8C80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 035D0FE61C9E1EA200BC89C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C03FE3F212BD740009BD6ED;
+			remoteInfo = ShapefileReader;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0344B4DD1C9EEAFF001DCDAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0344B4DF1C9EFB02001DCDAB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		035D0FFE1C9E1EB200BC89C8 /* ShapefileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapefileReader.swift; sourceTree = "<group>"; };
-		035D10061C9E1FB200BC89C8 /* ShapefileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapefileTests.swift; sourceTree = "<group>"; };
-		035D10081C9E1FB200BC89C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		035D100D1C9E1FFA00BC89C8 /* Kantone.dbf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kantone.dbf; sourceTree = "<group>"; };
-		035D100E1C9E1FFA00BC89C8 /* Kantone.prj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Kantone.prj; sourceTree = "<group>"; };
-		035D100F1C9E1FFA00BC89C8 /* Kantone.sbn */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kantone.sbn; sourceTree = "<group>"; };
-		035D10101C9E1FFA00BC89C8 /* Kantone.sbx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kantone.sbx; sourceTree = "<group>"; };
-		035D10111C9E1FFA00BC89C8 /* Kantone.shp */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kantone.shp; sourceTree = "<group>"; };
-		035D10121C9E1FFA00BC89C8 /* Kantone.shp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kantone.shp.xml; sourceTree = "<group>"; };
-		035D10131C9E1FFA00BC89C8 /* Kantone.shx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kantone.shx; sourceTree = "<group>"; };
 		4C03FE40212BD740009BD6ED /* ShapefileReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShapefileReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C03FE42212BD740009BD6ED /* ShapefileReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapefileReader.h; sourceTree = "<group>"; };
 		4C03FE43212BD740009BD6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C03FE4A212BDC1E009BD6ED /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C03FE4C212BDCAC009BD6ED /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4CC1B2F2212D370F000A8C80 /* ShapefileReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShapefileReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC1B2F4212D370F000A8C80 /* ShapefileReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapefileReaderTests.swift; sourceTree = "<group>"; };
+		4CC1B2F6212D3710000A8C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC1B2EF212D370F000A8C80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC1B2F7212D3710000A8C80 /* ShapefileReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,8 +63,8 @@
 				4C03FE4C212BDCAC009BD6ED /* .gitignore */,
 				4C03FE4A212BDC1E009BD6ED /* LICENSE */,
 				0344B4DD1C9EEAFF001DCDAB /* README.md */,
-				035D10051C9E1FB200BC89C8 /* ShapefileTests */,
 				4C03FE41212BD740009BD6ED /* ShapefileReader */,
+				4CC1B2F3212D370F000A8C80 /* ShapefileReaderTests */,
 				035D0FEF1C9E1EA200BC89C8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,32 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				4C03FE40212BD740009BD6ED /* ShapefileReader.framework */,
+				4CC1B2F2212D370F000A8C80 /* ShapefileReaderTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		035D10051C9E1FB200BC89C8 /* ShapefileTests */ = {
-			isa = PBXGroup;
-			children = (
-				035D100C1C9E1FFA00BC89C8 /* Kantone */,
-				035D10061C9E1FB200BC89C8 /* ShapefileTests.swift */,
-				035D10081C9E1FB200BC89C8 /* Info.plist */,
-			);
-			path = ShapefileTests;
-			sourceTree = "<group>";
-		};
-		035D100C1C9E1FFA00BC89C8 /* Kantone */ = {
-			isa = PBXGroup;
-			children = (
-				035D100D1C9E1FFA00BC89C8 /* Kantone.dbf */,
-				035D100E1C9E1FFA00BC89C8 /* Kantone.prj */,
-				035D100F1C9E1FFA00BC89C8 /* Kantone.sbn */,
-				035D10101C9E1FFA00BC89C8 /* Kantone.sbx */,
-				035D10111C9E1FFA00BC89C8 /* Kantone.shp */,
-				035D10121C9E1FFA00BC89C8 /* Kantone.shp.xml */,
-				035D10131C9E1FFA00BC89C8 /* Kantone.shx */,
-			);
-			path = Kantone;
 			sourceTree = "<group>";
 		};
 		4C03FE41212BD740009BD6ED /* ShapefileReader */ = {
@@ -96,6 +87,15 @@
 				0344B4DF1C9EFB02001DCDAB /* Utils.swift */,
 			);
 			path = ShapefileReader;
+			sourceTree = "<group>";
+		};
+		4CC1B2F3212D370F000A8C80 /* ShapefileReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CC1B2F4212D370F000A8C80 /* ShapefileReaderTests.swift */,
+				4CC1B2F6212D3710000A8C80 /* Info.plist */,
+			);
+			path = ShapefileReaderTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,17 +130,38 @@
 			productReference = 4C03FE40212BD740009BD6ED /* ShapefileReader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		4CC1B2F1212D370F000A8C80 /* ShapefileReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC1B2FC212D3710000A8C80 /* Build configuration list for PBXNativeTarget "ShapefileReaderTests" */;
+			buildPhases = (
+				4CC1B2EE212D370F000A8C80 /* Sources */,
+				4CC1B2EF212D370F000A8C80 /* Frameworks */,
+				4CC1B2F0212D370F000A8C80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CC1B2F9212D3710000A8C80 /* PBXTargetDependency */,
+			);
+			name = ShapefileReaderTests;
+			productName = ShapefileReaderTests;
+			productReference = 4CC1B2F2212D370F000A8C80 /* ShapefileReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		035D0FE61C9E1EA200BC89C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					4C03FE3F212BD740009BD6ED = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					4CC1B2F1212D370F000A8C80 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -158,12 +179,20 @@
 			projectRoot = "";
 			targets = (
 				4C03FE3F212BD740009BD6ED /* ShapefileReader */,
+				4CC1B2F1212D370F000A8C80 /* ShapefileReaderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4C03FE3E212BD740009BD6ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC1B2F0212D370F000A8C80 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -182,7 +211,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4CC1B2EE212D370F000A8C80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC1B2F5212D3710000A8C80 /* ShapefileReaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4CC1B2F9212D3710000A8C80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C03FE3F212BD740009BD6ED /* ShapefileReader */;
+			targetProxy = 4CC1B2F8212D3710000A8C80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		035D0FF31C9E1EA200BC89C8 /* Debug */ = {
@@ -361,6 +406,61 @@
 			};
 			name = Release;
 		};
+		4CC1B2FA212D3710000A8C80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShapefileReaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hectare.ShapefileReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4CC1B2FB212D3710000A8C80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = ShapefileReaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hectare.ShapefileReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -378,6 +478,15 @@
 			buildConfigurations = (
 				4C03FE46212BD740009BD6ED /* Debug */,
 				4C03FE47212BD740009BD6ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CC1B2FC212D3710000A8C80 /* Build configuration list for PBXNativeTarget "ShapefileReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC1B2FA212D3710000A8C80 /* Debug */,
+				4CC1B2FB212D3710000A8C80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
