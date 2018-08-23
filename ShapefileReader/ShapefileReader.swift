@@ -105,8 +105,9 @@ public class DBFReader {
     
     public typealias DBFRecord = [Any]
     
-    var lastUpdate : String! // YYYY-MM-DD
     public var fieldNames : [String]!
+    public var lastUpdate : String! // YYYY-MM-DD
+    
     var fields : [[AnyObject]]!
     var fileHandle : FileHandle!
     var fileType : Int!
