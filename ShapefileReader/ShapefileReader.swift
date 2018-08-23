@@ -100,7 +100,8 @@ public class DBFReader {
     // extended with dBase IV 2.0 'F' type
 
     enum Errors: Error {
-        case cannotReadFile(path:String)
+        case cannotReadFile(path: String)
+        case recordOutofRange(record: Int)
     }
     
     public typealias DBFRecord = [Any]
@@ -246,9 +247,12 @@ public class DBFReader {
     
     func recordAtIndex(_ i:Int = 0) throws -> DBFRecord {
         
-        guard let f = self.fileHandle else {
-            print("no dbf")
-            return []
+        guard let f = self.fileHandle else { return [] }
+        
+        // The highest *index* we should be
+        // able to access is numberOfRecords - 1
+        guard i <= self.numberOfRecords - 1 else {
+            throw DBFReader.Errors.recordOutofRange(record: i)
         }
         
         f.seek(toFileOffset: 0)
