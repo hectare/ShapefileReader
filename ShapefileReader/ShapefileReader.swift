@@ -105,15 +105,15 @@ public class DBFReader {
     
     public typealias DBFRecord = [Any]
     
-    var fileHandle : FileHandle!
-    var numberOfRecords : Int!
-    var fileType : Int!
     var lastUpdate : String! // YYYY-MM-DD
     public var fieldNames : [String]!
     var fields : [[AnyObject]]!
+    var fileHandle : FileHandle!
+    var fileType : Int!
     var headerLength : Int!
-    var recordLengthFromHeader : Int!
+    var numberOfRecords : Int!
     var recordFormat : String!
+    var recordLengthFromHeader : Int!
     
     init(path: URL) throws {
         self.fileHandle = try FileHandle(forReadingFrom: path)
@@ -146,7 +146,7 @@ public class DBFReader {
         
         let numFields = (headerLength - 33) / 32
         
-        self.fieldNames = []
+        var fieldNames = [String]()
         self.fields = []
         for _ in 0..<numFields {
             let fieldDesc = try unpack("<11sc4xBB14x", f.readData(ofLength: 32)) // [name, type CDFLMN, length, count]
@@ -159,6 +159,8 @@ public class DBFReader {
             let stripped = fieldName.trimmingCharacters(in: cSet)
             fieldNames.append(stripped)
         }
+        
+        self.fieldNames = fieldNames.sorted()
         
         let terminator = try unpack("<s", f.readData(ofLength: 1))[0] as! String
         assert(terminator == "\r", "unexpected terminator")
