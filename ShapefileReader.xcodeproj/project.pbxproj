@@ -10,6 +10,7 @@
 		4C03FE44212BD740009BD6ED /* ShapefileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C03FE42212BD740009BD6ED /* ShapefileReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4C03FE48212BD8E4009BD6ED /* ShapefileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035D0FFE1C9E1EB200BC89C8 /* ShapefileReader.swift */; };
 		4C03FE49212BD8EE009BD6ED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344B4DF1C9EFB02001DCDAB /* Utils.swift */; };
+		4C364C27212D3F100054E096 /* lime in Resources */ = {isa = PBXBuildFile; fileRef = 4C364C26212D3F100054E096 /* lime */; };
 		4CC1B2F5212D3710000A8C80 /* ShapefileReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC1B2F4212D370F000A8C80 /* ShapefileReaderTests.swift */; };
 		4CC1B2F7212D3710000A8C80 /* ShapefileReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C03FE40212BD740009BD6ED /* ShapefileReader.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		4C03FE43212BD740009BD6ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C03FE4A212BDC1E009BD6ED /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C03FE4C212BDCAC009BD6ED /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4C364C26212D3F100054E096 /* lime */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lime; sourceTree = "<group>"; };
 		4CC1B2F2212D370F000A8C80 /* ShapefileReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShapefileReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC1B2F4212D370F000A8C80 /* ShapefileReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapefileReaderTests.swift; sourceTree = "<group>"; };
 		4CC1B2F6212D3710000A8C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		4CC1B2F3212D370F000A8C80 /* ShapefileReaderTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C364C26212D3F100054E096 /* lime */,
 				4CC1B2F4212D370F000A8C80 /* ShapefileReaderTests.swift */,
 				4CC1B2F6212D3710000A8C80 /* Info.plist */,
 			);
@@ -196,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C364C27212D3F100054E096 /* lime in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
