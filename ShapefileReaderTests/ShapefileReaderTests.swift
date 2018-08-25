@@ -43,7 +43,7 @@ class ShapefileReaderTests: XCTestCase {
             XCTAssertEqual(dbf.headerLength, 161)
             XCTAssertEqual(dbf.lastUpdate, "2018-08-22")
             
-            let expected = ["AREA", "LIME", "PDK", "SEASON"]
+            let expected = ["PDK", "LIME", "SEASON", "AREA"]
             let fields = dbf.fieldNames
             
             XCTAssertEqual(fields, expected)
