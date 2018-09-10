@@ -411,20 +411,10 @@ public class SHPReader {
         record.points = recPoints
         
         if shapeType.hasZValues {
-            let a = try unpack("<2d", f.readData(ofLength: 16)).map({ $0 as! Double })
-            let zmin = a[0]
-            let zmax = a[1]
-            print("zmin: \(zmin), zmax: \(zmax)")
-            
             record.z = try unpack("<\(nPoints)d", f.readData(ofLength: nPoints * 8)).map({ $0 as! Double })[0]
         }
         
         if shapeType.hasMValues && self.measure.m_min != 0.0 && self.measure.m_max != 0.0 {
-            let a = try unpack("<2d", f.readData(ofLength: 16)).map({ $0 as! Double })
-            let mmin = a[0]
-            let mmax = a[1]
-            print("mmin: \(mmin), mmax: \(mmax)")
-            
             // Spec: Any floating point number smaller than –10e38
             // is considered by a shapefile reader to represent a "no data" value.
             record.m = []
