@@ -107,6 +107,7 @@ func isBigEndianFromMandatoryByteOrderFirstCharacter(_ format: String) -> Bool {
 }
 
 // akin to struct.calcsize(fmt)
+// swiftlint:disable cyclomatic_complexity
 func numberOfBytesInFormat(_ format: String) -> Int {
 
     var numberOfBytes = 0
@@ -133,7 +134,7 @@ func numberOfBytesInFormat(_ format: String) -> Int {
 
         let repeatCount = max(n, 1)
 
-        switch(c) {
+        switch c {
 
         case "@", "<", "=", ">", "!", " ":
             ()
@@ -193,7 +194,7 @@ func pack(_ format: String, _ objects: [Any], _ stringEncoding: String.Encoding=
 
     let firstCharacter = mutableFormat.remove(at: mutableFormat.startIndex)
 
-    switch(firstCharacter) {
+    switch firstCharacter {
     case "<", "=":
         isBigEndian = false
     case ">", "!":
@@ -250,7 +251,7 @@ func pack(_ format: String, _ objects: [Any], _ stringEncoding: String.Encoding=
                 o = objectsQueue.removeFirst()
             }
 
-            switch(c) {
+            switch c {
             case "?":
                 bytes = (o as! Bool) ? [0x01] : [0x00]
             case "c":
@@ -349,7 +350,7 @@ func unpack(_ format: String, _ data: Data, _ stringEncoding: String.Encoding=St
 
             var o: Unpackable?
 
-            switch(c) {
+            switch c {
 
             case "c":
                 let optionalString = NSString(bytes: [bytes[loc]], length: 1, encoding: String.Encoding.utf8.rawValue)

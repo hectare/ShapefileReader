@@ -170,6 +170,7 @@ public class DBFReader {
         self.recordFormat = self.buildDBFRecordFormat()
     }
 
+    // swiftlint:disable cyclomatic_complexity
     fileprivate func recordAtOffset(_ offset: UInt64) throws -> DBFRecord {
 
         guard let f = self.fileHandle else {
@@ -359,6 +360,7 @@ public class SHPReader {
         }
     }
 
+    // swiftlint:disable cyclomatic_complexity
     func shapeAtOffset(_ offset: UInt64) throws -> (next: UInt64, shape: Shape)? {
 
         if offset == shpLength { return nil }
