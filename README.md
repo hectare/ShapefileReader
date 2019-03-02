@@ -88,3 +88,5 @@ __TODO__
 
 Handle projection files, eg. from http://www.gadm.org/download.
 
+## Linting
+Linting is done with [SwiftLint](https://github.com/realm/SwiftLint) at build time. See  `.swiftlint` for details.
