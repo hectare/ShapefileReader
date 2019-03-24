@@ -66,15 +66,15 @@ public class Shape {
         self.shapeType = type
     }
 
-    var shapeType: ShapeType
+    public var shapeType: ShapeType
     public var points: [CLLocationCoordinate2D] = []
     public var bbox : (x_min: Double, y_min: Double, x_max: Double, y_max: Double) = (0.0, 0.0, 0.0, 0.0)
-    var parts: [Int] = []
-    var partTypes: [Int] = []
+    public var parts: [Int] = []
+    public var partTypes: [Int] = []
     var z: Double = 0.0
     var m: [Double?] = []
 
-    func partPointsGenerator() -> AnyIterator<[CLLocationCoordinate2D]> {
+    public func partPointsGenerator() -> AnyIterator<[CLLocationCoordinate2D]> {
 
         var indices = Array(self.parts)
         indices.append(self.points.count-1)
