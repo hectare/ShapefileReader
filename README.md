@@ -1,11 +1,10 @@
 # ShapefileReader
-__A shapefile reader in Swift__
 
-__Description__
+## Description
 
 Reads data from files in [Shapefile](https://en.wikipedia.org/wiki/Shapefile) format.
 
-__API Overview__
+## API Overview
 
 ShapefileReader is the only object you instantiate.
 
@@ -65,28 +64,17 @@ if let shx = sr.shx {
     	}
     }
 }
-```
 
-or more simply
-
-```swift
+// or more simply
 let shape = sr[2]
 ```
 
-__Implementation Details__
+## Implementation Details
 
 - shape points are CLLocationCoordinate2D arrays
 - record are arrays of Int, Double, Bool or String (no NSDate, no optionals)
 - random access in files and enumerators are used each time it is possible
 - most of time, code will crash when files do not match the specs, feel free to open an issue an join the offending files
-
-__Tests and Drawing__
-
-The project comes with a unit test target.
-
-__TODO__
-
-Handle projection files, eg. from http://www.gadm.org/download.
 
 ## Linting
 Linting is done with [SwiftLint](https://github.com/realm/SwiftLint) at build time. See  `.swiftlint` for details.
