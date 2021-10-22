@@ -8,6 +8,10 @@
 import XCTest
 @testable import ShapefileReader
 
+enum ReadError: Error {
+    case fileNotFound
+}
+
 class ShapefileReaderTests: XCTestCase {
 
     override func setUp() {
@@ -18,9 +22,8 @@ class ShapefileReaderTests: XCTestCase {
         super.tearDown()
     }
 
-    func testShapeName() {
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: "lime", withExtension: "shp", subdirectory: "lime") else { return }
+    func testShapeName() throws {
+        guard let url = Bundle.module.url(forResource: "lime", withExtension: ".shp") else { throw ReadError.fileNotFound }
 
         do {
             let sr = try ShapefileReader(path: url)
@@ -31,9 +34,8 @@ class ShapefileReaderTests: XCTestCase {
         }
     }
 
-    func testDBFReader() {
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: "lime", withExtension: "shp", subdirectory: "lime") else { return }
+    func testDBFReader() throws {
+        guard let url = Bundle.module.url(forResource: "lime", withExtension: ".shp") else { throw ReadError.fileNotFound }
 
         do {
             let sr = try ShapefileReader(path: url)
@@ -73,9 +75,8 @@ class ShapefileReaderTests: XCTestCase {
         }
     }
 
-    func testShapes() {
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: "lime", withExtension: "shp", subdirectory: "lime") else { return }
+    func testShapes() throws {
+        guard let url = Bundle.module.url(forResource: "lime", withExtension: ".shp") else { throw ReadError.fileNotFound }
 
         do {
             let sr = try ShapefileReader(path: url)
@@ -107,9 +108,9 @@ class ShapefileReaderTests: XCTestCase {
 
     }
 
-    func testReadTime() {
-        let bundle = Bundle(for: type(of: self))
-        guard let url = bundle.url(forResource: "lime", withExtension: "shp", subdirectory: "lime") else { return }
+    func testReadTime() throws {
+        guard let url = Bundle.module.url(forResource: "lime", withExtension: ".shp") else { throw ReadError.fileNotFound }
+
         measure {
             do {
                 _ = try ShapefileReader(path: url)

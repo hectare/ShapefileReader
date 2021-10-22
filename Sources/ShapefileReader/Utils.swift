@@ -178,8 +178,8 @@ func formatDoesMatchDataLength(_ format: String, data: Data) -> Bool {
  */
 
 enum BinUtilsError: Error {
-    case formatDoesMatchDataLength(format:String, dataSize:Int)
-    case unsupportedFormat(character:Character)
+    case formatDoesMatchDataLength(format: String, dataSize: Int)
+    case unsupportedFormat(character: Character)
 }
 
 func pack(_ format: String, _ objects: [Any], _ stringEncoding: String.Encoding=String.Encoding.windowsCP1252) -> Data {

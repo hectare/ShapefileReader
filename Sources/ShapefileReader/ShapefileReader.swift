@@ -196,7 +196,6 @@ public class DBFReader {
 
             let name = fields[0] as! String
             let type = fields[1] as! String
-            //let size = fields[2] as! Int
             let deci = fields[3] as! Int == 1
 
             if name == "DeletionFlag" { continue }
@@ -335,7 +334,6 @@ public class SHPReader {
         self.shpLength = UInt64((l[0] as! Int) * 2)
 
         let a = try unpack("<ii", f.readData(ofLength: 8))
-        //let version = a[0] as! Int
         let shapeTypeInt = a[1] as! Int
         guard let shapeType = ShapeType(rawValue: shapeTypeInt) else {
             assertionFailure("-- unknown shapetype \(shapeTypeInt)")
@@ -375,7 +373,6 @@ public class SHPReader {
         f.seek(toFileOffset: offset)
 
         let l = try unpack(">2i", f.readData(ofLength: 8))
-        //let recNum = l[0] as! Int
         let recLength = l[1] as! Int
 
         let next = f.offsetInFile + UInt64((2 * recLength))
